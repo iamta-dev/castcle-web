@@ -1,0 +1,48 @@
+<div>
+    <form class="text-center">
+        <div class="form-group">
+            <div class="flex-row">
+                <div class="flex-col code-box">
+                    <input class="code-box-input text-xl text-white" id="codeBox0" name="codeBox0" type="text"
+                        (keyup)="onKeyUpEvent(0, $event)" (focus)="onFocusEvent(0, $event)" [(ngModel)]="otpGroup[0]">
+                    <div class="line"></div>
+                </div>
+
+                <div class="flex-col code-box">
+                    <input class="code-box-input text-xl text-white" id="codeBox1" name="codeBox1" type="text"
+                        (keyup)="onKeyUpEvent(1, $event)" (focus)="onFocusEvent(1, $event)" [(ngModel)]="otpGroup[1]">
+                    <div class="line"></div>
+                </div>
+
+                <div class="flex-col code-box">
+                    <input class="code-box-input text-xl text-white" id="codeBox2" name="codeBox2" type="text"
+                        (keyup)="onKeyUpEvent(2, $event)" (focus)="onFocusEvent(2, $event)" [(ngModel)]="otpGroup[2]">
+                    <div class="line"></div>
+                </div>
+
+                <div class="flex-col code-box">
+                    <input class="code-box-input text-xl text-white" id="codeBox3" name="codeBox3" type="text"
+                        (keyup)="onKeyUpEvent(3, $event)" (focus)="onFocusEvent(3, $event)" [(ngModel)]="otpGroup[3]">
+                    <div class="line"></div>
+                </div>
+
+                <div class="flex-col code-box">
+                    <input class="code-box-input text-xl text-white" id="codeBox4" name="codeBox4" type="text"
+                        (keyup)="onKeyUpEvent(4, $event)" (focus)="onFocusEvent(4, $event)" [(ngModel)]="otpGroup[4]">
+                    <div class="line"></div>
+                </div>
+
+                <div class="flex-col code-box">
+                    <input class="code-box-input text-xl text-white" id="codeBox5" name="codeBox5" type="text"
+                        (keyup)="onKeyUpEvent(5, $event)" (focus)="onFocusEvent(5, $event)" [(ngModel)]="otpGroup[5]">
+                    <div class="line"></div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 
+<input *ngFor="let otp of otpGroup;index as i" id="codeBox{{i}}" name="codeBox{{i}}" type="text"
+    (keyup)="onKeyUpEvent(i, $event)" (focus)="onFocusEvent(i, $event)" [(ngModel)]="otpGroup[i]"> -->

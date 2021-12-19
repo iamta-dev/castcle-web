@@ -1,1 +1,132 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Sarabun", sans-serif;
+    font-size: 22px;
+    background-color: #17191a;
+    height: 100%;
+    color: white;
+}
+
+.container {
+    padding-bottom: 20px;
+    margin: auto;
+    width: 400px;
+    height: 600px;
+}
+.h-full {
+    height: 100%;
+}
+.w-full {
+    width: 100%;
+}
+.pb-15 {
+    padding-bottom: 15px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.pb-60 {
+    padding-bottom: 60px;
+}
+
+.w-350 {
+    width: 350px;
+}
+
+.header {
+    width: 350px;
+    padding-bottom: 20px;
+}
+
+.footer {
+    // position: absolute;
+    // bottom: 20px;
+    margin-top: auto;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    display: flex;
+    justify-self: start;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-2xs {
+    font-size: 0.6rem;
+    line-height: 0.75rem;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+// .toolbar {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     height: 60px;
+//     display: flex;
+//     align-items: center;
+//     background-color: #1976d2;
+//     color: white;
+//     font-weight: 600;
+// }
+
+// .content {
+//     display: flex;
+//     margin: 82px auto 32px;
+//     padding: 0 16px;
+//     max-width: 960px;
+//     flex-direction: column;
+//     align-items: center;
+// }
