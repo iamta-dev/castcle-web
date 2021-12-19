@@ -1,1 +1,11 @@
-<p>input-telephone works!</p>
+<div class="input-telephone flex-row text-xl text-white">
+    <select class="country-select text-xs text-white" #selectCountryElem
+        (change)="setPhoneCountryCode(selectCountryElem.value)">
+        <option *ngFor="let phone of phoneCountryCode" [value]="phone.country">
+            <label class="text-xl">{{phone.country}}</label>
+        </option>
+    </select>
+    <label class="country-code-label text-xs text-white">{{ phoneNumber.code }}</label>
+    <div class="line"></div>
+    <input class="phone-input text-xs text-white" type="text" [value]="phoneNumber.phoneNumber">
+</div>

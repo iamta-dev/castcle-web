@@ -1,2 +1,12 @@
-<app-button-style> </app-button-style>
-<p>welcome works!</p>
+<div class="flex-col content h-full">
+    <app-header-style class="header" label="Register" (onClick)="backPage()"> </app-header-style>
+
+    <img class="usersImg" [src]="usersImg" />
+    <label class="text-xl">Welcaom Castcle</label>
+    <p class="flex-col content text-xs text-gray">
+        <span>A Decentralized Social Media</span>
+        <span>for Everyone</span>
+    </p>
+
+    <app-button-style class="footer" label="Next" (onClick)="nextPage()"> </app-button-style>
+</div>

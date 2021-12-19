@@ -1,1 +1,9 @@
-<p>button-style works!</p>
+<!-- <div id="button">
+    <button type="button" class="btn" (click)="onClickButton($event)">{{label}}</button>
+</div> -->
+
+
+<!-- Text Button -->
+<button type="button" [ngStyle]="buttonConfig.styles" (click)="onClickButton($event)">
+    {{label}}
+</button>

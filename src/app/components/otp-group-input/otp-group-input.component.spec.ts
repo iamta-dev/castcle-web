@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputOtpComponent } from './input-otp.component';
+import { OtpGroupInputComponent } from './otp-group-input.component';
 
-describe('InputOtpComponent', () => {
-  let component: InputOtpComponent;
-  let fixture: ComponentFixture<InputOtpComponent>;
+describe('OtpGroupInputComponent', () => {
+  let component: OtpGroupInputComponent;
+  let fixture: ComponentFixture<OtpGroupInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputOtpComponent ]
+      declarations: [ OtpGroupInputComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputOtpComponent);
+    fixture = TestBed.createComponent(OtpGroupInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
