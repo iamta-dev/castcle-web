@@ -3,11 +3,13 @@
     <label class="text-xl">Enter 6 digit code</label>
     <p class="text-sm">Your code was sent to +66 95291 4822</p>
     <p class="text-sm">รหัสชุด OTP SAWc1548</p>
-    <app-otp-group-input [digiNumber]="6"> </app-otp-group-input>
+    <app-otp-group-input [digitNumber]="digitNumber" [otpGroup]="otpGroup" (otpGroupChange)="otpGroupChange($event)">
+    </app-otp-group-input>
 
-    <p class="text-sm">Dont't receive it yet?<a href="#">Send again</a></p>
-    <p class="text-gray text-sm">Resend Code 60s</p>
+    <p class="text-sm">Dont't receive it yet?<a class="send-again-btn" (click)="onSendAgain($event)">Send again</a></p>
+    <p class="text-gray text-sm">Resend Code {{countDownTimeOut}}s</p>
 
-    <app-button-style class="footer" label="Next" (onClick)="nextPage()"> </app-button-style>
+    <app-button-style [disabled]="sentOtpDisabled" class="footer" label="Next" (onClick)="nextPage()">
+    </app-button-style>
 
 </div>

@@ -12,6 +12,8 @@ import { ButtonStyleComponent } from './components/button-style/button-style.com
 import { InputTelephoneComponent } from './components/input-telephone/input-telephone.component';
 import { HeaderStyleComponent } from './components/header-style/header-style.component';
 import { OtpGroupInputComponent } from './components/otp-group-input/otp-group-input.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { OtpGroupInputComponent } from './components/otp-group-input/otp-group-i
     ButtonStyleComponent,
     InputTelephoneComponent,
     HeaderStyleComponent,
-    OtpGroupInputComponent
+    OtpGroupInputComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

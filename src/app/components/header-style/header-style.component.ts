@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-header-style',
@@ -7,9 +9,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HeaderStyleComponent implements OnInit {
 
-  @Input() label: string = "button works"
+  faArrowLeft = faArrowLeft;
+
+  @Input() label: string = "header works"
   @Output() onClick = new EventEmitter<any>();
-  iconImg = 'assets/back_arrow.svg'
+  arrowBackIcon = 'assets/back_arrow.svg'
   constructor() { }
 
   ngOnInit(): void {

@@ -3,8 +3,13 @@ export interface PhoneCountryCode {
     code: string;
 }
 
-export interface PhoneNumber {
+export interface Telephone {
     country: string;
     code: string;
     phoneNumber: string;
+}
+
+export interface DropdownOption {
+    label: string,
+    value: any
 }

@@ -1,0 +1,18 @@
+.btn {
+    background-color: #02d2ff;
+    border: #02d2ff;
+    width: 300px;
+    height: 60px;
+    color: #fff;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.btn:disabled,
+.btn[disabled] {
+    background-color: #17191a;
+    border: 2px solid black;
+    width: 300px;
+    height: 60px;
+    color: #606164;
+    border-radius: 40px;
+}
