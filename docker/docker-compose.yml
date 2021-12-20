@@ -12,7 +12,3 @@ services:
     environment:
       - TZ=Asia/Bangkok
 
-networks:
-  castcle-gateway:
-    name: castcle-gateway
-    external: true
