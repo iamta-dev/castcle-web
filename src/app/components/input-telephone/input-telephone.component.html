@@ -1,6 +1,5 @@
 <div class="input-telephone flex-row text-xl text-white">
-    <app-dropdown class="country-select" [dropdownOption]="dropdownOption"
-        (onSelectOption)="changePhoneCountryCode($event)">
+    <app-dropdown class="country-select" [dropdownOption]="dropdownOption" (onSelectOption)="changeCountryCode($event)">
     </app-dropdown>
     <label class="country-code-label text-xs text-white">{{ telephone.code }}</label>
     <div class="line"></div>

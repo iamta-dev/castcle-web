@@ -42,7 +42,9 @@
         </div>
     </form>
 </div>
-
 <!-- 
-<input *ngFor="let otp of otpGroup;index as i" id="codeBox{{i}}" name="codeBox{{i}}" type="text"
-    (keyup)="onKeyUpEvent(i, $event)" (focus)="onFocusEvent(i, $event)" [(ngModel)]="otpGroup[i]"> -->
+<div *ngFor="let otp of otpGroup;index as i" class="flex-col code-box">
+    <input class="code-box-input text-xl text-white" id="codeBox{{i}}" name="codeBox{{i}}" type="text"
+        (keyup)="onKeyUpEvent(i, $event)" (focus)="onFocusEvent(i, $event)" [(ngModel)]="otpGroup[i]">
+    <div class="line"></div>
+</div> -->

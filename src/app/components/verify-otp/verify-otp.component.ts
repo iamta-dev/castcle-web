@@ -14,14 +14,13 @@ export class VerifyOtpComponent implements OnInit {
 
   otpGroup: string[] = []
   digitNumber = 6
-  otpTimeOut = 10
+  otpTimeOut = 60
   countDownTimeOut = this.otpTimeOut
 
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
     this.countDownVerifyOTP(this.otpTimeOut)
   }
 
@@ -41,14 +40,17 @@ export class VerifyOtpComponent implements OnInit {
   }
 
   nextPage(): void {
+    const otpCode = this.otpGroup.reduce((acc, val) => String(acc) + String(val), "")
+    console.log(otpCode)
     this.router.navigate(['verify-otp']);
   }
 
-  otpGroupChange(otp: string): void {
+  otpGroupChange(otp: string[]): void {
+    this.otpGroup = otp
     if (this.countDownTimeOut == 0) {
       this.sentOtpDisabled = true
     } else {
-      this.sentOtpDisabled = otp.length != this.digitNumber
+      this.sentOtpDisabled = otp.length != this.digitNumber || otp.includes("")
     }
   }
 

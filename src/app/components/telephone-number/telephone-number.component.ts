@@ -28,6 +28,7 @@ export class TelephoneNumberComponent implements OnInit {
   }
 
   nextPage(): void {
+    console.log(this.telephone)
     this.router.navigate(['verify-otp']);
   }
 

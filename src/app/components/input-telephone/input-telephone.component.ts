@@ -31,11 +31,9 @@ export class InputTelephoneComponent implements OnInit {
     this.telephoneChange.emit(this.telephone)
   }
 
-  changePhoneCountryCode(code: string): void {
-    this.telephone.code = code;
-    this.phoneCountryCode.forEach((data) => {
-      if (data.code == code) this.telephone.country = data.country;
-    })
+  changeCountryCode(option: DropdownOption): void {
+    this.telephone.country = option.label
+    this.telephone.code = option.value
     this.telephoneChange.emit(this.telephone)
   }
 

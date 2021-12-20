@@ -8,14 +8,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class OtpGroupInputComponent implements OnInit {
 
   @Input() digitNumber: number = 0
-  @Output() otpGroupChange = new EventEmitter<string>();
+  @Input() otpGroup: string[] = []
+  @Output() otpGroupChange = new EventEmitter<string[]>();
 
-  otpGroup: string[] = []
   constructor() { }
 
   ngOnInit(): void {
     this.otpGroup = Array.from(Array(this.digitNumber), () => "")
-    this.getCodeBoxElement(0)?.focus()
   }
 
   getCodeBoxElement(index: number): HTMLElement | null {
@@ -32,15 +31,11 @@ export class OtpGroupInputComponent implements OnInit {
         this.getCodeBoxElement(index + 1)?.focus()
       }
     }
-    this.changeOtp()
-  }
-
-  changeOtp(): void {
-    const otp = this.otpGroup.reduce((acc, val) => acc + val)
-    this.otpGroupChange.emit(otp)
+    this.otpGroupChange.emit(this.otpGroup)
   }
 
   onFocusEvent(index: any, event: any) {
     this.otpGroup[index] = "";
+    this.otpGroupChange.emit(this.otpGroup)
   }
 }
