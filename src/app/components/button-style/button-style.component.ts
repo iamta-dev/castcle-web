@@ -8,21 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ButtonStyleComponent implements OnInit {
 
   @Input() label: string = "button works"
+  @Input() disabled: boolean = false
   @Output() onClick = new EventEmitter<any>();
-
-  buttonConfig = {
-    styles: {
-      backgroundColor: '#02D2FF',
-      border: '#02D2FF',
-      width: '300px',
-      height: '60px',
-      color: '#fff',
-      fontFamily: 'sans-serif',
-      fontSize: '20px',
-      borderRadius: '40px',
-    },
-    text: 'Click Here'
-  };
 
   constructor() { }
 

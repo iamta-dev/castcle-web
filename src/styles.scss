@@ -23,30 +23,22 @@ body {
 .pb-15 {
     padding-bottom: 15px;
 }
-
 .pb-20 {
     padding-bottom: 20px;
 }
-
 .pb-60 {
     padding-bottom: 60px;
 }
-
 .w-350 {
     width: 350px;
 }
-
 .header {
     width: 350px;
     padding-bottom: 20px;
 }
-
 .footer {
-    // position: absolute;
-    // bottom: 20px;
     margin-top: auto;
 }
-
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -71,15 +63,17 @@ body {
     display: flex;
     justify-self: start;
 }
-
+.text-label {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .text-gray {
-    color: gray;
+    color: #606164;
 }
 
 .text-white {
     color: white;
 }
-
 .text-2xs {
     font-size: 0.6rem;
     line-height: 0.75rem;
@@ -109,24 +103,3 @@ body {
     font-size: 1.5rem;
     line-height: 2rem;
 }
-// .toolbar {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     height: 60px;
-//     display: flex;
-//     align-items: center;
-//     background-color: #1976d2;
-//     color: white;
-//     font-weight: 600;
-// }
-
-// .content {
-//     display: flex;
-//     margin: 82px auto 32px;
-//     padding: 0 16px;
-//     max-width: 960px;
-//     flex-direction: column;
-//     align-items: center;
-// }

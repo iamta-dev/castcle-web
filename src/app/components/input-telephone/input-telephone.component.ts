@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PhoneCountryCode, PhoneNumber } from 'src/models';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DropdownOption, PhoneCountryCode, Telephone } from 'src/models';
 
 @Component({
   selector: 'app-input-telephone',
@@ -8,26 +8,39 @@ import { PhoneCountryCode, PhoneNumber } from 'src/models';
 })
 export class InputTelephoneComponent implements OnInit {
 
-  public phoneCountryCode: Array<PhoneCountryCode> = []
-  public phoneNumber: PhoneNumber = {
+  @Input() telephone: Telephone = {
     country: '',
     code: '',
-    phoneNumber: '095XXXXX',
+    phoneNumber: '',
   }
+
+  @Output() telephoneChange = new EventEmitter<Telephone>();
+  phoneCountryCode: Array<PhoneCountryCode> = []
+  dropdownOption: DropdownOption[] = []
 
   constructor() { }
 
   ngOnInit(): void {
     this.phoneCountryCode = [{ country: "Thai", code: "+66" }, { country: "Eng", code: "+99" }, { country: "Age", code: "+11" }]
-    this.phoneNumber.country = this.phoneCountryCode[0].country
-    this.phoneNumber.code = this.phoneCountryCode[0].code
+    this.telephone.country = this.phoneCountryCode[0].country
+    this.telephone.code = this.phoneCountryCode[0].code
+
+    this.dropdownOption = this.phoneCountryCode.map((data) => {
+      return { label: data.country, value: data.code }
+    })
+    this.telephoneChange.emit(this.telephone)
   }
 
-  setPhoneCountryCode(country: string): void {
-    this.phoneNumber.country = country;
+  changePhoneCountryCode(code: string): void {
+    this.telephone.code = code;
     this.phoneCountryCode.forEach((data) => {
-      if (data.country == country) this.phoneNumber.code = data.code
+      if (data.code == code) this.telephone.country = data.country;
     })
+    this.telephoneChange.emit(this.telephone)
+  }
+
+  changePhoneNumber(event: any) {
+    this.telephoneChange.emit(this.telephone)
   }
 
 }

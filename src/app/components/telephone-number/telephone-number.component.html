@@ -4,8 +4,10 @@
     <label class="w-350 pb-20 text-xl">Telephone number ?</label>
     <label class="w-350 pb-60 text-sm">Welcome to castcle</label>
 
-    <app-input-telephone> </app-input-telephone>
+    <app-input-telephone [telephone]="telephone" (telephoneChange)="telephoneChange($event)">
+    </app-input-telephone>
     <p class="text-2xs text-gray">You'll use this email when you login and when you <br>lose your password</p>
 
-    <app-button-style class="footer" label="Sent OTP" (onClick)="nextPage()"> </app-button-style>
+    <app-button-style [disabled]="sentOtpDisabled" class="footer" label="Sent OTP" (onClick)="nextPage()">
+    </app-button-style>
 </div>
