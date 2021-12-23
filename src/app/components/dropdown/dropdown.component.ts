@@ -11,14 +11,13 @@ export class DropdownComponent implements OnInit {
 
   faChevronDown = faChevronDown;
 
-  label: string = "dropdown works"
+  @Input() label: string = ""
   @Input() dropdownOption: DropdownOption[] = []
   @Output() onSelectOption = new EventEmitter<DropdownOption>();
 
   constructor() { }
 
   ngOnInit(): void {
-    if (this.dropdownOption.length > 0) this.label = this.dropdownOption[0].label
   }
 
   showDropDown(event: any) {
@@ -33,6 +32,7 @@ export class DropdownComponent implements OnInit {
       if (data.value == value) {
         this.label = data.label
         this.onSelectOption.emit(data)
+        return
       }
     })
   }
