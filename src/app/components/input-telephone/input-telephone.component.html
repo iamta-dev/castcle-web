@@ -1,8 +1,9 @@
 <div class="input-telephone flex-row text-xl text-white">
-    <app-dropdown class="country-select" [dropdownOption]="dropdownOption" (onSelectOption)="changeCountryCode($event)">
+    <app-dropdown class="country-select" [label]="telephone.country" [dropdownOption]="countryOption"
+        (onSelectOption)="changeCountryCode($event)">
     </app-dropdown>
-    <label class="country-code-label text-xs text-white">{{ telephone.code }}</label>
     <div class="line"></div>
-    <input class="phone-input text-xs text-white" type="text" [(ngModel)]="telephone.phoneNumber"
-        (keyup)="changePhoneNumber($event)">
+    <label class="country-code-label text-xs text-white">{{ telephone.code }}</label>
+    <input #phoneNumber class="phone-input text-xs text-white" type="text"
+        (keyup)="changePhoneNumber(phoneNumber.value)">
 </div>

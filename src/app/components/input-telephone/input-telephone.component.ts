@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DropdownOption, PhoneCountryCode, Telephone } from 'src/models';
+import { DropdownOption, Country, Telephone } from 'src/models';
+import { CountryService } from 'src/app/services/country.service';
+import { map } from 'rxjs';
+
 
 @Component({
   selector: 'app-input-telephone',
@@ -13,31 +16,44 @@ export class InputTelephoneComponent implements OnInit {
     code: '',
     phoneNumber: '',
   }
+  @Output() telephoneChange = new EventEmitter<Telephone>()
 
-  @Output() telephoneChange = new EventEmitter<Telephone>();
-  phoneCountryCode: Array<PhoneCountryCode> = []
-  dropdownOption: DropdownOption[] = []
+  countryOption: DropdownOption[] = []
 
-  constructor() { }
+  constructor(public countryService: CountryService) { }
 
   ngOnInit(): void {
-    this.phoneCountryCode = [{ country: "Thai", code: "+66" }, { country: "Eng", code: "+99" }, { country: "Age", code: "+11" }]
-    this.telephone.country = this.phoneCountryCode[0].country
-    this.telephone.code = this.phoneCountryCode[0].code
+    this.setCountryOption()
+  }
 
-    this.dropdownOption = this.phoneCountryCode.map((data) => {
-      return { label: data.country, value: data.code }
-    })
+  setCountryOption(): void {
+    this.countryService.getCountrys()
+      .pipe(
+        map((data: any) => {
+          return data.payload.map((country: Country) => {
+            return { label: country.name, value: country.dialCode }
+          })
+        }),
+      )
+      .subscribe(
+        (result: DropdownOption[]) => {
+          if (result.length > 0) {
+            this.telephone.country = result[0].label
+            this.telephone.code = result[0].value
+          }
+          this.countryOption = result
+        },
+      )
+  }
+
+  changePhoneNumber(value: string) {
+    this.telephone.phoneNumber = value
     this.telephoneChange.emit(this.telephone)
   }
 
   changeCountryCode(option: DropdownOption): void {
     this.telephone.country = option.label
     this.telephone.code = option.value
-    this.telephoneChange.emit(this.telephone)
-  }
-
-  changePhoneNumber(event: any) {
     this.telephoneChange.emit(this.telephone)
   }
 

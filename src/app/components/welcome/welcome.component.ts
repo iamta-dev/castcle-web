@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { CountryService } from 'src/app/services/country.service';
+import { Country } from 'src/models';
 
 @Component({
   selector: 'app-welcome',
@@ -10,7 +13,7 @@ export class WelcomeComponent implements OnInit {
 
   usersImg = 'assets/avatars.svg'
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public countryService: CountryService) { }
 
   ngOnInit(): void {
   }

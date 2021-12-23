@@ -14,6 +14,11 @@ import { HeaderStyleComponent } from './components/header-style/header-style.com
 import { OtpGroupInputComponent } from './components/otp-group-input/otp-group-input.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CachingInterceptor } from './interceptors/caching.interceptor';
+
+import { CountryService } from './services/country.service'
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,10 +35,23 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    CountryService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CachingInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
