@@ -1,12 +1,13 @@
 <div class="flex-col content  h-full">
     <app-header-style class="header" label="Register" (onClick)="backPage()"> </app-header-style>
     <label class="text-xl">Enter 6 digit code</label>
-    <p class="text-sm">Your code was sent to +66 95291 4822</p>
-    <p class="text-sm">รหัสชุด OTP SAWc1548</p>
+    <p class="text-sm">Your code was sent to {{telephone.code}} {{telephone.phoneNumber.slice(0,5)}}
+        {{telephone.phoneNumber.slice(5,9)}}</p>
+    <p class="text-sm">รหัสชุด OTP {{otpRef}}</p>
     <app-otp-group-input [digitNumber]="digitNumber" [otpGroup]="otpGroup" (otpGroupChange)="otpGroupChange($event)">
     </app-otp-group-input>
 
-    <p class="text-sm">Dont't receive it yet?<a class="send-again-btn" (click)="onSendAgain($event)">Send again</a></p>
+    <p class="text-sm">Dont't receive it yet?<a class="send-again-btn" (click)="onSendAgain()">Send again</a></p>
     <p class="text-gray text-sm">Resend Code {{countDownTimeOut}}s</p>
 
     <app-button-style [disabled]="sentOtpDisabled" class="footer" label="Next" (onClick)="nextPage()">
