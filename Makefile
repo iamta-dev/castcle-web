@@ -7,4 +7,4 @@ up:
 down:
 	docker-compose -f ./docker/docker-compose.yml down
 
-.PHONY: up
+.PHONY: build
